@@ -48,7 +48,7 @@
                 <input type="password" class="form-control input" placeholder="Password">
                 <label class="text-black"><input type="checkbox">Remember me</label>
             </div>
-            <a href="" class="link text-black">Don't have an account? Register now!</a>
+            <a href="register" class="link text-black">Don't have an account? Register now!</a>
             <button class="btn btn-dark">LOG IN</button>
         </div>
     </div>

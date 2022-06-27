@@ -50,7 +50,7 @@
                 <input type="password" class="form-control input" placeholder="Password">
                 <span>Confirm Password</span>
                 <input type="password" class="form-control input" placeholder="Confirm Password">
-            <a href="" class="link text-black align-self-center">Already have an account?</a>
+            <a href="login" class="link text-black align-self-center">Already have an account?</a>
             <button class="btn btn-dark">LOG IN</button>
         </div>
     </div>
