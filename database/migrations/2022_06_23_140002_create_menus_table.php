@@ -20,7 +20,6 @@ class CreateMenusTable extends Migration
             $table->text('description');
             $table->integer('stock');
             $table->foreignId('category_id')->constrained();
-            $table->foreignId('restaurant_id')->constrained();
             $table->timestamps();
         });
     }

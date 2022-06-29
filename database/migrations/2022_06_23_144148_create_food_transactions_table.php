@@ -17,7 +17,6 @@ class CreateFoodTransactionsTable extends Migration
             $table->id();
             $table->date('date');
             $table->foreignId('user_id')->constrained();
-            $table->foreignId('restaurant_id')->constrained();
             $table->timestamps();
         });
     }
