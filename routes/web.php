@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ApplicationController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [ApplicationController::class, 'login']);
 Route::get('/login', [ApplicationController::class, 'login']);
 Route::get('/register', [ApplicationController::class, 'register']);
+
+
+Route::get('/admin/dashboard', [AdminController::class, 'index']);
+Route::get('/admin/add', [AdminController::class, 'create'])->name('admin.add');
