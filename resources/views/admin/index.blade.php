@@ -1,10 +1,10 @@
 @extends('master')
 
-@section('title', 'homepage')
+@section('title', 'Dashboard')
 
 @section('content')
     <div class="container">
-        <div>
+        <div class="mt-4">
             <a href="{{ route('admin.add') }}">
                 <button class="btn btn-dark">Add Restaurant</button>
             </a>
