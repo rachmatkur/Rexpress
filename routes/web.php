@@ -22,3 +22,4 @@ Route::get('/register', [ApplicationController::class, 'register']);
 
 Route::get('/admin/dashboard', [AdminController::class, 'index']);
 Route::get('/admin/add', [AdminController::class, 'create'])->name('admin.add');
+Route::post('/admin/add', [AdminController::class, 'store']);
