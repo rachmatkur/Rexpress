@@ -49,7 +49,7 @@
                 <a href="" class="nav-link">Home</a>
             </li>
             <li class="nav-item">
-                <a href="" class="nav-link">Food</a>
+                <a href="" class="nav-link">Restos</a>
             </li>
             <li class="nav-item">
                 <a href="" class="nav-link">My Orders</a>
@@ -61,7 +61,7 @@
                 Account
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                <li><a class="dropdown-item" href="#">Edit Profile</a></li>
+                <li><a class="dropdown-item" href="#">View Profile</a></li>
                 <li><a class="dropdown-item" href="#">Log Out</a></li>
             </ul>
         </div>
