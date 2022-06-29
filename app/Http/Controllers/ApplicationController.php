@@ -8,7 +8,7 @@ class ApplicationController extends Controller
 {
     //
     public function login(){
-        return view('master');
+        return view('home');
     }
     public function register(){
         return view('register');
