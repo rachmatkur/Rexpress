@@ -11,21 +11,33 @@
         </div>
         <div class="row mt-4">
             <div class="col">
-                <div class="card mb-3">
-                    <div class="row g-0">
-                        <div class="col-md-3">
-                            <img src="..." class="img-fluid rounded-start" alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                    additional content. This content is a little bit longer.</p>
-                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                @foreach ($restaurants as $resto)
+                    <div class="card mb-3">
+                        <div class="row g-0">
+                            <div class="col-md-3">
+                                <img src="..." class="img-fluid rounded-start" alt="...">
+                            </div>
+                            <div class="col-md-7">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $resto->name }}</h5>
+                                    <p class="card-text">{{ $resto->description }}</p>
+                                    <p class="card-text"><small
+                                            class="text-muted">{{ $resto->created_at->diffForHumans() }}</small></p>
+                                </div>
+                            </div>
+                            <div class="col-md-2 d-flex justify-content-center py-2">
+                                <div class="btn">
+                                    <a href="{{ route('admin.edit', $resto->id) }}" class="btn btn-dark">Update</a>
+                                    <form action="{{ route('admin.delete', $resto->id) }}" method="POST"
+                                        class="d-inline">
+                                        @csrf @method('DELETE')
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

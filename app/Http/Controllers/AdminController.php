@@ -9,7 +9,9 @@ class AdminController extends Controller
 {
     public function index()
     {
-        return view('admin.index');
+        return view('admin.index', [
+            'restaurants' => User::where('role', 3)->get()
+        ]);
     }
 
     public function create()
@@ -23,6 +25,28 @@ class AdminController extends Controller
         // dd($request->all());
 
         User::create($request->all());
+
+        return redirect('/admin/dashboard');
+    }
+
+    public function edit(User $user)
+    {
+        // dd($user);
+        return view('admin.update', [
+            'restaurant' => $user
+        ]);
+    }
+
+    public function update(Request $request, User $user)
+    {
+        $user->update($request->all());
+
+        return redirect('/admin/dashboard');
+    }
+
+    public function destroy(User $user)
+    {
+        $user->delete();
 
         return redirect('/admin/dashboard');
     }
