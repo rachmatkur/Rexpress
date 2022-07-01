@@ -43,16 +43,16 @@
 
 <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark d-flex justify-content-evenly align-items-center">
-        <a href="" class="nav-brand"><img src="/gambar/logo.webp" alt="" style="height: 50px; width: 100px;"></a>
+        <a href="/home" class="nav-brand"><img src="/gambar/logo.webp" alt="" style="height: 50px; width: 100px;"></a>
         <ul class="navbar-nav w-25 d-flex justify-content-evenly h-100"> 
             <li class="nav-item">
-                <a href="" class="nav-link">Home</a>
+                <a href="/home" class="nav-link">Home</a>
             </li>
             <li class="nav-item">
-                <a href="" class="nav-link">Food</a>
+                <a href="/restos" class="nav-link">Restos</a>
             </li>
             <li class="nav-item">
-                <a href="" class="nav-link">My Orders</a>
+                <a href="/orders" class="nav-link">My Orders</a>
             </li>
         </ul>
         <div class="nav-item dropdown">
@@ -61,7 +61,7 @@
                 Account
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                <li><a class="dropdown-item" href="#">Edit Profile</a></li>
+                <li><a class="dropdown-item" href="#">View Profile</a></li>
                 <li><a class="dropdown-item" href="#">Log Out</a></li>
             </ul>
         </div>
