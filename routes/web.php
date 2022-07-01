@@ -18,7 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [ApplicationController::class, 'login']);
 Route::get('/login', [ApplicationController::class, 'login']);
 Route::get('/register', [ApplicationController::class, 'register']);
-
+Route::get('/home', [ApplicationController::class, 'home']);
+Route::get('/restos', [ApplicationController::class, 'restos']);
 
 Route::get('/admin/dashboard', [AdminController::class, 'index']);
 Route::get('/admin/add', [AdminController::class, 'create'])->name('admin.add');
