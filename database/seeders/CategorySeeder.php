@@ -15,17 +15,21 @@ class CategorySeeder extends Seeder
     public function run()
     {
         Category::insert([[
-            'category' => 'Main Course'
+            'user_id' => 3,
+            'category' => 'Western'
         ],
         [
-            'category' => 'Dessert'
+            'user_id' => 3,
+            'category' => 'Chinese'
         ],
         [
-            'category' => 'Appetizer'
+            'user_id' => 3,
+            'category' => 'Japanese'
         ],
         [
-            'category' => 'Beverage'
-        ]
+            'user_id' => 3,
+            'category' => 'Beverage'    
+        ]    
         ]);
     }
 }
