@@ -24,7 +24,8 @@ class ApplicationController extends Controller
 
     public function restoDetail($id){
         $resto = User::where('id', $id)->first();
-        return view('restaurantDetail',['resto'=>$resto]);
+        $menus = User::find($id)->menu;
+        return view('restaurantDetail',['resto'=>$resto, "menus" => $menus]);
     }
 
     public function cart(){
