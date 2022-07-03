@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Category;
+use App\Models\Menu;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -16,8 +17,10 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        Category::create([
-            'category' => 'Mie'
+        $this->call([
+            UserSeeder::class,
+            CategorySeeder::class,
+            MenuSeeder::class
         ]);
     }
 }
