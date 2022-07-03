@@ -20,14 +20,14 @@ class CreateUsersTable extends Migration
             $table->string('email');
             $table->string('name');
             $table->string('password');
-            $table->text('address');
+            $table->text('address')->nullable();
             $table->string('profilePicture')->nullable();
-            $table->string('phoneNumber');
+            $table->string('phoneNumber')->nullable();
             $table->text('description')->nullable();
             $table->timestamps();
         });
     }
-    
+
 
     /**
      * Reverse the migrations.

@@ -2,21 +2,33 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ApplicationController extends Controller
 {
     //
-    public function login(){
-        return view('login');
+    public function register()
+    {
+        return view('auth.register');
     }
-    public function register(){
-        return view('register');
+
+    public function store(Request $request)
+    {
+        $request['role'] = 1;
+        // dd($request->all());
+
+        User::create($request->all());
+
+        return redirect('/login');
     }
-    public function home(){
+
+    public function home()
+    {
         return view('home');
     }
-    public function restos(){
+    public function restos()
+    {
         return view('restos');
     }
 }
