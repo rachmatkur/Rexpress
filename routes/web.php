@@ -21,8 +21,14 @@ Route::get('/', [ApplicationController::class, 'login']);
 Route::get('/login', [ApplicationController::class, 'login']);
 Route::get('/register', [ApplicationController::class, 'register']);
 
+Route::get('/cart', [ApplicationController::class, 'cart']);
+Route::get('/history', [ApplicationController::class, 'history']);
+
+
+
 Route::get('/home', [ApplicationController::class, 'home']);
 Route::get('/restos', [ApplicationController::class, 'restos']);
+Route::get('/restoDetail/{id}', [ApplicationController::class, 'restoDetail']);
 
 //crud resto
 Route::get('/admin/dashboard', [AdminController::class, 'index']);

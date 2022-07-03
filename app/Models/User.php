@@ -15,4 +15,8 @@ class User extends Model
     {
         return $this->attributes['password'] = bcrypt($password);
     }
+
+    public function menu(){
+        return $this->hasMany(Menu::class);
+    }
 }
