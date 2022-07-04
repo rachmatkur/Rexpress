@@ -29,6 +29,15 @@
                                 <label for="exampleFormControlInput1" class="form-label">Stock</label>
                                 <input type="number" class="form-control" id="exampleFormControlInput1" name="stock">
                             </div>
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">Category</label>
+                                <select class="form-select" name='category_id' aria-label="Default select example">
+                                    <option selected disabled>Select Category</option>
+                                    @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}">{{ $category->category }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                             <button class="btn btn-dark" type="submit">Add Restaurant</button>
                         </form>
                     </div>

@@ -25,10 +25,7 @@
                                     <h5 class="card-title">{{ $resto->name }}</h5>
                                     <p class="card-text">{{ $resto->price }}</p>
                                     <p class="card-text">{{ $resto->stock }}</p>
-                                    {{-- <p class="card-text">{{ $resto->cart }}</p> --}}
                                     <p class="card-text">{{ $resto->description }}</p>
-                                    <p class="card-text"><small
-                                            class="text-muted">{{ $resto->created_at->diffForHumans() }}</small></p>
                                 </div>
                             </div>
                             <div class="col-md-2 d-flex justify-content-center py-2">
@@ -46,5 +43,6 @@
                 @endforeach
             </div>
         </div>
+        {{ $menus->links() }}
     </div>
 @endsection

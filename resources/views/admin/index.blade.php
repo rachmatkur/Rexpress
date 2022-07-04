@@ -21,8 +21,6 @@
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $resto->name }}</h5>
                                     <p class="card-text">{{ $resto->description }}</p>
-                                    <p class="card-text"><small
-                                            class="text-muted">{{ $resto->created_at->diffForHumans() }}</small></p>
                                 </div>
                             </div>
                             <div class="col-md-2 d-flex justify-content-center py-2">

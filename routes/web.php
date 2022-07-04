@@ -32,7 +32,7 @@ Route::get('/history', [ApplicationController::class, 'history']);
 
 
 
-Route::get('/home', [ApplicationController::class, 'home']);
+Route::get('/home', [ApplicationController::class, 'home'])->name('home');
 Route::get('/restos', [ApplicationController::class, 'restos']);
 Route::get('/restoDetail/{id}', [ApplicationController::class, 'restoDetail']);
 
