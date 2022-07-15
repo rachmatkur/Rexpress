@@ -42,7 +42,7 @@
         <div class="container loginContainer bg-light d-flex align-items-center justify-content-center">
             <h2>SIGN UP</h2>
             <div class="d-flex form">
-                <form action="{{ route('register') }}" method="POST">
+                <form action="{{ route('register') }}" method="POST" class="d-flex flex-column">
                     @csrf
                     <span>Name</span>
                     <input type="text" class="form-control input" placeholder="Name" name="name">
@@ -51,7 +51,14 @@
                     <span>Password</span>
                     <input type="password" class="form-control input" placeholder="Password" name="password">
                     <a href="login" class="link text-black align-self-center">Already have an account?</a>
-                    <button class="btn btn-dark">LOG IN</button>
+                    @if ($errors->any())
+                    <div class="alert alert-danger d-flex justify-content-center align-items-center">
+                        @foreach ($errors->all() as $message)
+                            {{ $message }}
+                        @endforeach
+                    </div>
+                    @endif
+                    <button class="btn btn-dark">REGISTER</button>
                 </form>
             </div>
         </div>

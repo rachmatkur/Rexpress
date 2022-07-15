@@ -15,6 +15,10 @@ class ApplicationController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required', 'min:2']
+        ]);
         $request['role'] = 1;
         // dd($request->all());
 

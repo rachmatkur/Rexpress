@@ -5,6 +5,7 @@ use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MenuController;
+use App\Models\Cart;
 use App\Models\User;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Support\Facades\Route;
@@ -20,18 +21,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [ApplicationController::class, 'home']);
-Route::get('/login', [LoginController::class, 'index'])->name('login');
-Route::post('/login', [LoginController::class, 'store']);
+//login, register, and logout route
+Route::get('/', [LoginController::class, 'index']);
+Route::get('/login', [LoginController::class, 'index'])->name('loginIndex');
+Route::post('/login', [LoginController::class, 'store'])->name('login');
+Route::get('/register', [ApplicationController::class, 'register'])->name('registerIndex');
+Route::post('/register', [ApplicationController::class, 'store'])->name('register');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::get('/register', [ApplicationController::class, 'register'])->name('register');
-Route::post('/register', [ApplicationController::class, 'store']);
-
-Route::get('/cart', [ApplicationController::class, 'cart']);
+Route::get('/cart', [AppplicationController::class, 'cart']);
 Route::get('/history', [ApplicationController::class, 'history']);
-
-
-
 Route::get('/home', [ApplicationController::class, 'home'])->name('home');
 Route::get('/restos', [ApplicationController::class, 'restos']);
 Route::get('/restoDetail/{id}', [ApplicationController::class, 'restoDetail']);
@@ -43,7 +42,6 @@ Route::post('/admin/add', [AdminController::class, 'store']);
 Route::get('/admin/{user}/edit', [AdminController::class, 'edit'])->name('admin.edit');
 Route::post('/admin/{user}/edit', [AdminController::class, 'update']);
 Route::delete('/admin/{user}', [AdminController::class, 'destroy'])->name('admin.delete');
-
 
 // crud menu
 Route::get('/resto/dashboard', [MenuController::class, 'index'])->name('resto.index');

@@ -41,7 +41,7 @@
     <div class="d-flex container-fluid bg-dark wrapper justify-content-center align-items-center">
         <div class="container loginContainer bg-light d-flex align-items-center justify-content-center">
             <h2>LOGIN</h2>
-            <form action="" method="POST">
+            <form action="{{ route('login') }}" method="POST" class="d-flex flex-column align-items-center">
                 @csrf
                 <div class="d-flex form">
                     <span>Email</span>
@@ -51,6 +51,13 @@
                     {{-- <label class="text-black"><input type="checkbox">Remember me</label> --}}
                 </div>
                 <a href="register" class="link text-black">Don't have an account? Register now!</a>
+                @if ($errors->any())
+                    <div class="alert alert-danger d-flex justify-content-center align-items-center">
+                        @foreach ($errors->all() as $message)
+                            {{ $message }}
+                        @endforeach
+                    </div>
+                @endif
                 <button class="btn btn-dark">LOG IN</button>
             </form>
         </div>
