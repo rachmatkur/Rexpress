@@ -9,8 +9,14 @@ use Illuminate\Support\Facades\Auth;
 class LoginController extends Controller
 {
     public function index()
-    {
-        return view('auth.login');
+    {   
+        $user = Auth::check();
+        if($user){
+            return redirect()->intended(route('home'));
+        }
+        else{
+            return view('auth.login');
+        }
     }
 
     public function store(Request $request)
@@ -22,15 +28,8 @@ class LoginController extends Controller
         if (Auth::attempt($user)) {
             $data = User::where('email', $request->email)->first();
             $request->session()->regenerate();
-
             // dd($data);
-            if ($data->role == 1) {
-                return redirect()->intended(route('home'));
-            } elseif ($data->role == 2) {
-                return redirect()->intended(route('admin.index'));
-            } elseif ($data->role == 3) {
-                return redirect()->intended(route('resto.index'));
-            }
+            return redirect()->intended(route('home'));
         }
         else{
             return redirect('login')->withErrors('Wrong credentials, please try again!');
@@ -42,5 +41,5 @@ class LoginController extends Controller
             Auth::logout();
         }
         return redirect()->route('login');
-    }
+}
 }
