@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->integer('role');
             //1 user, 2 admin, 3 restaurant
-            $table->string('email');
+            $table->string('email')->unique();
             $table->string('name');
             $table->string('password');
             $table->text('address')->nullable();
