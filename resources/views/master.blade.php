@@ -45,8 +45,11 @@
 
 <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark d-flex justify-content-evenly align-items-center">
-        <a href="/home" class="nav-brand container-sm d-flex justify-content-center"><img src="/gambar/logo.webp"
-                alt="" style="height: 50px; width: 100px;"></a>
+        <div class="container-sm d-flex justify-content-center pe-5">
+            <a href="/home" class="text-decoration-none" style="color: #F3A712"><img src="/gambar/logo.png"
+                alt="" style="width: 50px">REXPRESS</a>
+        </div>
+      
         <ul class="navbar-nav w-75 d-flex justify-content-evenly h-100 container-md">
             <li class="nav-item">
                 <a href="/home" class="nav-link">Home</a>

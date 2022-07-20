@@ -29,6 +29,8 @@ Route::post('/login', [LoginController::class, 'store'])->name('login');
 Route::get('/register', [ApplicationController::class, 'register'])->name('registerIndex');
 Route::post('/register', [ApplicationController::class, 'store'])->name('register');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('profile', [ApplicationController::class, 'profile'])->name('profile')->middleware('auth')->middleware('auth');
+
 
 //features
 Route::get('/cart', [ApplicationController::class, 'cart'])->middleware('auth');
@@ -58,4 +60,3 @@ Route::post('/category/add', [CategoryController::class, 'store'])->middleware('
 Route::get('/category/{user}/edit', [CategoryController::class, 'edit'])->name('category.edit')->middleware('auth','resto');
 Route::post('/category/{user}/edit', [CategoryController::class, 'update'])->middleware('auth','resto');
 Route::delete('/category/{user}', [CategoryController::class, 'destroy'])->name('category.delete')->middleware('auth','resto');
-Route::get('profile', [ApplicationController::class, 'profile'])->name('profile')->middleware('auth')->middleware('auth','resto');

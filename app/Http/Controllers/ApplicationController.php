@@ -18,13 +18,17 @@ class ApplicationController extends Controller
     {
         $request->validate([
             'email' => ['required', 'email'],
-            'password' => ['required', 'min:2']
+            'password' => ['required', 'min:8'],
+            'name' => ['required', 'min:5'],
+            'phoneNumber' => ['required', 'min:10'],
+            'address' => ['required', 'min: 20'],
+            'description' => ['required', 'min: 30'],
+            'profilePicture' => 'required|image|mimes:jpg,jpeg,svg,png'
         ]);
         $request['role'] = 1;
         // dd($request->all());
-
+        $request->profilePicture->storeAs('/public/assets', $request->name.'profilePicture');
         User::create($request->all());
-
         return redirect('/login');
     }
 
