@@ -29,7 +29,9 @@ Route::post('/login', [LoginController::class, 'store'])->name('login');
 Route::get('/register', [ApplicationController::class, 'register'])->name('registerIndex');
 Route::post('/register', [ApplicationController::class, 'store'])->name('register');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-Route::get('profile', [ApplicationController::class, 'profile'])->name('profile')->middleware('auth')->middleware('auth');
+Route::get('profile', [ProfileController::class, 'index'])->name('profile')->middleware('auth');
+Route::get('profile/edit', [ProfileController::class, 'edit'])->name('profile.edit')->middleware('auth');
+Route::post('profile/store', [ProfileController::class, 'store'])->name('profile.store')->middleware('auth');
 
 
 //features

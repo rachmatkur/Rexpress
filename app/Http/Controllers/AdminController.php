@@ -56,7 +56,7 @@ class AdminController extends Controller
     public function edit(User $user)
     {
         // dd($user);
-        $user = Auth::check();
+        $currentUser = Auth::check();
         if ($user){
             $role = Auth::user()->role;
             $name = Auth::user()->name;
@@ -69,7 +69,7 @@ class AdminController extends Controller
             'restaurant' => $user,
             'role_id' => $role,
             'name' => $name,
-            'user' => $user,
+            'user' => $currentUser,
         ]);
     }
 

@@ -28,15 +28,15 @@
                             <span>Name</span>
                             <input type="text" class="form-control mb-2" placeholder="Name" name="name" value="{{old('name')}}">
                             <span>Email</span>
-                            <input type="text" class="form-control mb-2" placeholder="Email" name="email">
+                            <input type="text" class="form-control mb-2" placeholder="Email" name="email"  value="{{old('emaiol')}}">
                             <span>Password</span>
                             <input type="password" class="form-control mb-2" placeholder="Password" name="password">
                             <span>Address</span>
-                            <textarea name="address" class="form-control mb-2" placeholder="Address"></textarea>
+                            <textarea name="address" class="form-control mb-2" placeholder="Address"  value="{{old('address')}}"></textarea>
                             <span>Phone Number</span>
-                            <input type="number" class="form-control mb-2"  name="phoneNumber">
+                            <input type="number" class="form-control mb-2"  name="phoneNumber"  value="{{old('phoneNumber')}}">
                             <span>Bio</span>
-                            <textarea name="description" class="form-control mb-2" placeholder="Description"></textarea>
+                            <textarea name="description" class="form-control mb-2" placeholder="Description" value="{{old('description')}}"></textarea>
                             <span>Profile Picture</span>
                             <input type="file" name="profilePicture" class="form-control mb-2" id="profilePicture" placeholder="thumbnail" required>
                             <a href="login" class="text-black align-self-center text-decoration-none m-2">Already have

@@ -14,12 +14,14 @@
             <div class="w-75">
                 <div class="row bg-light">
                     @foreach ($restos as $resto)
-                        <div class="col-4 d-flex align-items-center" style="margin-bottom: 3%">
-                            <div class="card" style="width: 18rem;">
+                        <div class="col-md-4 d-flex align-items-center mb-4">
+                            <div class="card w-100 h-100">
                                 <img src="..." class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $resto->name }}</h5>
                                     <p class="card-text">{{ $resto->description }}</p>
+                                </div>
+                                <div class="card-footer border-0 bg-transparent">
                                     <a href="/restoDetail/{{ $resto->id }}" class="btn btn-dark">Go to page</a>
                                 </div>
                             </div>

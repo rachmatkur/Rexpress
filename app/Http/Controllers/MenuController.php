@@ -21,7 +21,7 @@ class MenuController extends Controller
             $name = 'Guest';
         }
         return view('resto.index', [
-            'menus' => Menu::orderBy('created_at', 'desc')->paginate(6),
+            'menus' => Menu::where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->paginate(6),
             'role_id' => $role,
             'name' => $name,
             'user' => $user,

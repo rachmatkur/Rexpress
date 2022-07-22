@@ -58,7 +58,7 @@
                 <a href="/restos" class="nav-link">Restos</a>
             </li>
             <li class="nav-item">
-                <a href="/cart" class="nav-link">My Orders</a>
+                <a href="/cart" class="nav-link">Orders</a>
             </li>
             @if ($role_id == '2')
                 <li class="nav-item">

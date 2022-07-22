@@ -25,10 +25,21 @@ class ApplicationController extends Controller
             'description' => ['required', 'min: 30'],
             'profilePicture' => 'required|image|mimes:jpg,jpeg,svg,png'
         ]);
-        $request['role'] = 1;
+
         // dd($request->all());
-        $request->profilePicture->storeAs('/public/assets', $request->name.'profilePicture');
-        User::create($request->all());
+        // dd($request->profilePicture);
+        $profilePicture = $request->name.'profilePicture.'.$request->profilePicture->getClientOriginalExtension();
+        $request->profilePicture->storeAs('/public/gambar', $profilePicture);
+        User::create([
+            'role' => 1,
+            'email' => $request->email,
+            'password' => $request->password,
+            'name' => $request->name,
+            'phoneNumber' => $request->phoneNumber,
+            'address' => $request->address,
+            'description' => $request->description,
+            'profilePicture' => $profilePicture
+        ]);
         return redirect('/login');
     }
 
@@ -123,21 +134,4 @@ class ApplicationController extends Controller
             'user' => $user,
         ]);
     }
-    public function profile(){       
-        $user = Auth::check();
-        if ($user){
-            $role = Auth::user()->role;
-            $name = Auth::user()->name;
-        }
-        else{
-            $role = '4';
-            $name = 'Guest';
-        }
-        return view('profile',[
-            'role_id' => $role,
-            'name' => $name,
-            'user' => $user,
-        ]);
-    }
-
 }
