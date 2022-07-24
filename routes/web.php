@@ -50,12 +50,15 @@ Route::get('/resto/dashboard', [MenuController::class, 'index'])->name('resto.in
 
 Route::get('/resto/add', [MenuController::class, 'create'])->name('resto.add');
 Route::post('/resto/add', [MenuController::class, 'store']);
-Route::get('/resto/{user}/edit', [MenuController::class, 'edit'])->name('resto.edit');
-Route::post('/resto/{user}/edit', [MenuController::class, 'update']);
-Route::delete('/resto/{user}', [MenuController::class, 'destroy'])->name('resto.delete');
+Route::get('/resto/{menu}/edit', [MenuController::class, 'edit'])->name('resto.edit');
+Route::post('/resto/{menu}/edit', [MenuController::class, 'update']);
+Route::delete('/resto/{menu}', [MenuController::class, 'destroy'])->name('resto.delete');
 
 Route::get('/category/add', [CategoryController::class, 'create'])->name('category.add');
 Route::post('/category/add', [CategoryController::class, 'store']);
 Route::get('/category/{user}/edit', [CategoryController::class, 'edit'])->name('category.edit');
 Route::post('/category/{user}/edit', [CategoryController::class, 'update']);
 Route::delete('/category/{user}', [CategoryController::class, 'destroy'])->name('category.delete');
+
+
+Route::get('/menu/{menu}', [MenuController::class, 'show'])->name('menu.show');

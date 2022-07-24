@@ -25,7 +25,7 @@
         </div>
         <div class="row mt-4 row-cols-3">
             @foreach ($categories as $category)
-                <div class="col">
+                <div class="col mb-3">
                     <div class="card">
                         <div class="card-body">
                             {{ $category->category }}
