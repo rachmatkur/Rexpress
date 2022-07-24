@@ -57,7 +57,7 @@ class ProfileController extends Controller
 
         // dd($request->all());
         // dd($request->profilePicture);
-        $profilePicture = $request->name . 'profilePicture.' . $request->profilePicture->getClientOriginalExtension();
+        $profilePicture = $request->name . 'ProfilePicture.' . $request->profilePicture->getClientOriginalExtension();
         $request->profilePicture->storeAs('public/gambar', $profilePicture);
         $user = User::find(Auth::user()->id);
         $user->email = $request->email;

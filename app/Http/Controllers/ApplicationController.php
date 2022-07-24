@@ -29,7 +29,7 @@ class ApplicationController extends Controller
 
         // dd($request->all());
         // dd($request->profilePicture);
-        $profilePicture = $request->name . 'profilePicture.' . $request->profilePicture->getClientOriginalExtension();
+        $profilePicture = $request->name . 'ProfilePicture.' . $request->profilePicture->getClientOriginalExtension();
         $request->profilePicture->storeAs('public/gambar', $profilePicture);
         User::create([
             'role' => 1,
