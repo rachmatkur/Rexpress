@@ -20,7 +20,8 @@ class MenuSeeder extends Seeder
             'description' => 'Delicioso',
             'stock' => 40,
             'category_id' => 1,
-            'user_id' => 3
+            'user_id' => 3,
+            'image' => 'hamburger.jpg'
         ],
         [
             'name' => 'Carbonara Pasta',
@@ -28,7 +29,8 @@ class MenuSeeder extends Seeder
             'description' => 'Chicken flavor pasta with cheese',
             'stock' => 40,
             'category_id' => 1,
-            'user_id' => 3
+            'user_id' => 3,
+            'image' => 'carbonara.jpg'
         ],
         [
             'name' => 'Steak',
@@ -36,7 +38,8 @@ class MenuSeeder extends Seeder
             'description' => 'Juicy and tender Beef',
             'stock' => 30,
             'category_id' => 1,
-            'user_id' => 3
+            'user_id' => 3,
+            'image' => 'steak.jpg'
         ],
         [
             'name' => 'Mapo Tofu',
@@ -44,7 +47,8 @@ class MenuSeeder extends Seeder
             'description' => 'Hot spicy tofy',
             'stock' => 40,
             'category_id' => 2,
-            'user_id' => 3
+            'user_id' => 3,
+            'image' => 'mapo tofu.jpg'
         ],
         [
             'name' => 'Congee',
@@ -52,7 +56,8 @@ class MenuSeeder extends Seeder
             'description' => 'Delicioso',
             'stock' => 50,
             'category_id' => 2,
-            'user_id' => 3
+            'user_id' => 3,
+            'image' => 'congee.jpg'
         ],
         [
             'name' => 'Dim Sum',
@@ -60,7 +65,8 @@ class MenuSeeder extends Seeder
             'description' => 'Delicioso',
             'stock' => 70,
             'category_id' => 2,
-            'user_id' => 3
+            'user_id' => 3,
+            'image' => 'dim sum.jpg'
         ],
         [
             'name' => 'Oyakodon',
@@ -68,7 +74,8 @@ class MenuSeeder extends Seeder
             'description' => 'Rice bowl with katsu on top',
             'stock' => 40,
             'category_id' => 3,
-            'user_id' => 3
+            'user_id' => 3,
+            'image' => 'oyakodon.jpg'
         ],
         [
             'name' => 'Curry',
@@ -76,7 +83,8 @@ class MenuSeeder extends Seeder
             'description' => 'Traditional Japanese curry',
             'stock' => 40,
             'category_id' => 3,
-            'user_id' => 3
+            'user_id' => 3,
+            'image' => 'curry.jpg'
         ],
         [
             'name' => 'Ramen',
@@ -84,7 +92,8 @@ class MenuSeeder extends Seeder
             'description' => 'Original japanese ramen',
             'stock' => 40,
             'category_id' => 3,
-            'user_id' => 3
+            'user_id' => 3,
+            'image' => 'ramen.jpg'
         ],
         [
             'name' => 'Ice Tea',
@@ -92,7 +101,8 @@ class MenuSeeder extends Seeder
             'description' => 'Fresh ice tea',
             'stock' => 70,
             'category_id' => 4,
-            'user_id' => 3
+            'user_id' => 3,
+            'image' => 'ice tea.jpg'
         ],
         [
             'name' => 'Lemon tea',
@@ -100,7 +110,8 @@ class MenuSeeder extends Seeder
             'description' => 'Uses fresh lemon',
             'stock' => 70,
             'category_id' => 4,
-            'user_id' => 3
+            'user_id' => 3,
+            'image' => 'lemon tea.jpg'
         ],
         [
             'name' => 'Milk Tea',
@@ -108,7 +119,8 @@ class MenuSeeder extends Seeder
             'description' => 'Using top grade milk',
             'stock' => 70,
             'category_id' => 4,
-            'user_id' => 3
+            'user_id' => 3,
+            'image' => 'milk tea.jpg'
         ],
         [
             'name' => 'Fruit Juice',
@@ -116,7 +128,8 @@ class MenuSeeder extends Seeder
             'description' => 'Choose any fruit juice you like',
             'stock' => 70,
             'category_id' => 4,
-            'user_id' => 3
+            'user_id' => 3,
+            'image' => 'fruit juice.jpg'
         ],
         [
             'name' => 'Smoothie',
@@ -124,7 +137,8 @@ class MenuSeeder extends Seeder
             'description' => 'Choose any smoothie you like',
             'stock' => 70,
             'category_id' => 4,
-            'user_id' => 3
+            'user_id' => 3,
+            'image' => 'smoothie.jpg'
         ],
         [
             'name' => 'Latte',
@@ -132,7 +146,17 @@ class MenuSeeder extends Seeder
             'description' => 'Delicious',
             'stock' => 70,
             'category_id' => 4,
-            'user_id' => 3
+            'user_id' => 3,
+            'image' => 'latte.jpg'
+        ],
+        [
+            'name' => 'Latto',
+            'price' => 23000,
+            'description' => 'Delicious',
+            'stock' => 70,
+            'category_id' => 4,
+            'user_id' => 4,
+            'image' => 'latto.jpg'
         ],
         ]
         );

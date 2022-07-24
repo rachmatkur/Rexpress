@@ -19,6 +19,7 @@ class CreateMenusTable extends Migration
             $table->integer('price');
             $table->text('description');
             $table->integer('stock');
+            $table->string('image');
             $table->foreignId('category_id')->constrained();
             $table->foreignId('user_id')->constrained();
             $table->timestamps();

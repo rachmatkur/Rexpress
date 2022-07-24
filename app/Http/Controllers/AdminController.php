@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
@@ -72,6 +73,14 @@ class AdminController extends Controller
 
     public function update(Request $request, User $user)
     {
+
+        if ($request->photo) {
+            if ($user->profilePicture) {
+                Storage::delete($user->profilePicture);
+            }
+            // dd($request->file('photo'));
+            $request['profilePicture'] = $request->file('photo')->store('gambar');
+        }
         $user->update($request->all());
 
         return redirect('/admin/dashboard');
@@ -79,8 +88,10 @@ class AdminController extends Controller
 
     public function destroy(User $user)
     {
+        if ($user->profilePicture) {
+            Storage::delete($user->profilePicture);
+        }
         $user->delete();
-
         return redirect('/admin/dashboard');
     }
 }

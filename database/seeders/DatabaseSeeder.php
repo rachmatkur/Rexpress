@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserSeeder::class,
             CategorySeeder::class,
-            MenuSeeder::class
+            MenuSeeder::class,
+            CartSeeder::class
         ]);
     }
 }

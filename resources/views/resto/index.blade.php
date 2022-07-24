@@ -18,7 +18,7 @@
                     <div class="card mb-3">
                         <div class="row g-0">
                             <div class="col-md-3">
-                                <img src="..." class="img-fluid rounded-start" alt="...">
+                                <img src="{{ asset($resto->image) }}" class="img-fluid rounded-start" alt="...">
                             </div>
                             <div class="col-md-7">
                                 <div class="card-body">
@@ -30,9 +30,8 @@
                             </div>
                             <div class="col-md-2 d-flex justify-content-center py-2">
                                 <div class="btn">
-                                    <a href="{{ route('resto.edit', $resto->id) }}" class="btn btn-dark">Update</a>
-                                    <form action="{{ route('resto.delete', $resto->id) }}" method="POST"
-                                        class="d-inline">
+                                    <a href="{{ route('resto.edit', $resto->id) }}" class="btn btn-dark disabled">Update</a>
+                                    <form action="{{ route('resto.delete', $resto->id) }}" method="POST" class="d-inline">
                                         @csrf @method('DELETE')
                                         <button type="submit" class="btn btn-danger">Delete</button>
                                     </form>

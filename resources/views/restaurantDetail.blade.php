@@ -19,15 +19,21 @@
                     @foreach ($menus as $menu)
                         <div class="col-md-4 d-flex align-items-center mb-4">
                             <div class="card w-100 h-100">
-                                <img src="..." class="card-img-top" alt="...">
+                                <img src="/gambar/menu/{{$menu->category->category}}/{{$menu->image}}" class="card-img-top h-50" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $menu->name }}</h5>
                                     <p class="card-text">{{ $menu->description }}</p>
                                     <p class="card-text">{{ $menu->stock }} available</p>
                                 </div>
                                 <div class="card-footer bg-transparent border-0">
+                                    @if (session()->has('message') && $menu->id == session('id'))
+                                        <p class="text-success">{{ session('message') }}</p>
+                                    @endif
+                                    @if (session()->has('error') && $menu->id == session('id'))
+                                    <p class="text-danger">{{ session('error') }}</p>
+                                    @endif
                                     <h5>IDR {{ $menu->price }}</h6>
-                                        <a href="" class="btn btn-dark">Add to Cart</a>
+                                    <a href="{{route('cart.add', $menu)}}" class="btn btn-dark">Add to Cart</a>
                                 </div>
                             </div>
                         </div>
