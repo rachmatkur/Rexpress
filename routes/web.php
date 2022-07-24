@@ -39,6 +39,8 @@ Route::post('/profile/store', [ProfileController::class, 'store'])->name('profil
 //cart routes
 Route::get('/cart', [CartController::class, 'index'])->middleware('auth')->name('cart.index');
 Route::get('/cart/add/{menu}', [CartController::class, 'add'])->middleware('auth')->name('cart.add');
+Route::get('/cart/remove/{menu}', [CartController::class, 'remove'])->middleware('auth')->name('cart.remove');
+Route::get('/cart/checkout', [CartController::class, 'checkout'])->middleware('auth')->name('cart.checkout');
 
 //features
 Route::get('/history', [ApplicationController::class, 'history'])->middleware('auth');

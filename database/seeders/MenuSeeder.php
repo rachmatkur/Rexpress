@@ -18,7 +18,7 @@ class MenuSeeder extends Seeder
             'name' => 'Burger',
             'price' => 50000,
             'description' => 'Delicioso',
-            'stock' => 40,
+            'stock' => 2,
             'category_id' => 1,
             'user_id' => 3,
             'image' => 'hamburger.jpg'

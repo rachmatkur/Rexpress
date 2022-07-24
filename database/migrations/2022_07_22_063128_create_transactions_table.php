@@ -16,8 +16,9 @@ class CreateTransactionsTable extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
-            $table->foreignId('menu_id')->constrained();
+            $table->foreignId('menu_id')->constrained()->onUpdate('cascade')->onDelete('cascade');;
             $table->integer('qty');
+            $table->integer('total');
             $table->timestamps();
         });
     }

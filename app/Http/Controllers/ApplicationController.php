@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -103,6 +104,7 @@ class ApplicationController extends Controller
 
     public function history()
     {
+        $transactions = Transaction::where('user_id', Auth::user()->id)->get();
         $user = Auth::check();
         if ($user){
             $role = Auth::user()->role;
@@ -116,6 +118,7 @@ class ApplicationController extends Controller
             'role_id' => $role,
             'name' => $name,
             'user' => $user,
+            'transactions' => $transactions
         ]);
     }
 }
