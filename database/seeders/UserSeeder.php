@@ -44,6 +44,16 @@ class UserSeeder extends Seeder
             'phoneNumber' => '081212345513',
             'description' => ''
         ],
+        [
+            'role' => 3,
+            'email' => 'stevon123@gmail.com',
+            'name' => 'stevon',
+            'password' => bcrypt('stevon123'),
+            'address' => 'jakarta',
+            'profilePicture' => '',
+            'phoneNumber' => '081212345513',
+            'description' => ''
+        ],
     ]);
     }
 }

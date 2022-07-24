@@ -11,13 +11,13 @@ class Menu extends Model
     use HasFactory;
     protected $guarded = ['id'];
 
-    public function categoory()
+    public function category()
     {
         return $this->belongsTo(Category::class, 'category_id');
     }
 
-    public function restorant()
+    public function restaurant()
     {
-        return $this->belongsTo(Restaurant::class, 'restaurant_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

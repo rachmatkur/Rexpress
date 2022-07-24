@@ -100,23 +100,7 @@ class ApplicationController extends Controller
         'user' => $user]);
     }
 
-    public function cart()
-    {
-        $user = Auth::check();
-        if ($user){
-            $role = Auth::user()->role;
-            $name = Auth::user()->name;
-        }
-        else{
-            $role = '4';
-            $name = 'Guest';
-        }
-        return view('cart',[
-            'role_id' => $role,
-            'name' => $name,
-            'user' => $user,
-        ]);
-    }
+
     public function history()
     {
         $user = Auth::check();

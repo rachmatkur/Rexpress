@@ -14,11 +14,9 @@
               <a class="nav-link text-body" href="/history">History</a>
             </li>
         </ul>
-
         <h1 class="cartResto" style="margin-top: 50px">
-            Ayam Tulang Lunak Wak Doyok
+            {{$restaurant->name}}
         </h1>
-
         <section class="h-100 h-custom" style="margin-bottom: 70px">
           <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">

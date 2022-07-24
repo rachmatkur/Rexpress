@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ApplicationController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MenuController;
@@ -22,24 +23,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//login, register, and logout route
+//login, register, and logout routes
 Route::get('/', [LoginController::class, 'index']);
 Route::get('/login', [LoginController::class, 'index'])->name('loginIndex');
 Route::post('/login', [LoginController::class, 'store'])->name('login');
 Route::get('/register', [ApplicationController::class, 'register'])->name('registerIndex');
 Route::post('/register', [ApplicationController::class, 'store'])->name('register');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-Route::get('profile', [ProfileController::class, 'index'])->name('profile')->middleware('auth');
-Route::get('profile/edit', [ProfileController::class, 'edit'])->name('profile.edit')->middleware('auth');
-Route::post('profile/store', [ProfileController::class, 'store'])->name('profile.store')->middleware('auth');
 
+//profile routes
+Route::get('/profile', [ProfileController::class, 'index'])->name('profile')->middleware('auth');
+Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit')->middleware('auth');
+Route::post('/profile/store', [ProfileController::class, 'store'])->name('profile.store')->middleware('auth');
+
+//cart routes
+Route::get('/cart', [CartController::class, 'index'])->middleware('auth')->name('cart.index');
+Route::get('/cart/add/{menu}', [CartController::class, 'add'])->middleware('auth')->name('cart.add');
 
 //features
-Route::get('/cart', [ApplicationController::class, 'cart'])->middleware('auth');
 Route::get('/history', [ApplicationController::class, 'history'])->middleware('auth');
 Route::get('/home', [ApplicationController::class, 'home'])->name('home');
 Route::get('/restos', [ApplicationController::class, 'restos']);
 Route::get('/restoDetail/{id}', [ApplicationController::class, 'restoDetail']);
+
+
 
 //crud resto
 Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.index')->middleware('auth', 'admin');
