@@ -15,17 +15,19 @@
                 </div>
             </div>
             <div class="w-75">
-                <div class="row bg-light row-cols-3">
+                <div class="row bg-light">
                     @foreach ($menus as $menu)
-                        <div class="col-4 mb-4">
-                            <div class="card">
-                                {{-- <img src="..." class="card-img-top" alt="..."> --}}
+                        <div class="col-md-4 d-flex align-items-center mb-4">
+                            <div class="card w-100 h-100">
+                                <img src="..." class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $menu->name }}</h5>
                                     <p class="card-text">{{ $menu->description }}</p>
-                                    <h6>{{ $menu->stock }} available</h6>
-                                    <h5>IDR {{ $menu->price }}</h5>
-                                    <a href="{{ route('menu.show', $menu->id) }}" class="btn btn-dark">Go to page</a>
+                                    <p class="card-text">{{ $menu->stock }} available</p>
+                                </div>
+                                <div class="card-footer bg-transparent border-0">
+                                    <h5>IDR {{ $menu->price }}</h6>
+                                        <a href="" class="btn btn-dark">Add to Cart</a>
                                 </div>
                             </div>
                         </div>

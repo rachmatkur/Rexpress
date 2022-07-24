@@ -4,27 +4,49 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
     public function index()
     {
+        $user = Auth::check();
+        if ($user) {
+            $role = Auth::user()->role;
+            $name = Auth::user()->name;
+        } else {
+            $role = '4'; //role 4 guest
+            $name = 'Guest';
+        }
         return view('admin.index', [
-            'restaurants' => User::where('role', 3)->get()
+            'restaurants' => User::where('role', 3)->get(),
+            'role_id' => $role,
+            'name' => $name,
+            'user' => $user,
         ]);
     }
 
     public function create()
     {
-        return view('admin.create');
+        $user = Auth::check();
+        if ($user) {
+            $role = Auth::user()->role;
+            $name = Auth::user()->name;
+        } else {
+            $role = '4'; //role 4 guest
+            $name = 'Guest';
+        }
+        return view('admin.create', [
+            'role_id' => $role,
+            'name' => $name,
+            'user' => $user,
+        ]);
     }
 
     public function store(Request $request)
     {
-
         $request['role'] = 3;
-        // dd($request->all());
-
+        $request['profilePicture'] = $request->file('photo')->store('gambar');
         User::create($request->all());
 
         return redirect('/admin/dashboard');
@@ -32,9 +54,19 @@ class AdminController extends Controller
 
     public function edit(User $user)
     {
-        // dd($user);
+        $currentUser = Auth::check();
+        if ($user) {
+            $role = Auth::user()->role;
+            $name = Auth::user()->name;
+        } else {
+            $role = '4'; //role 4 guest
+            $name = 'Guest';
+        }
         return view('admin.update', [
-            'restaurant' => $user
+            'restaurant' => $user,
+            'role_id' => $role,
+            'name' => $name,
+            'user' => $currentUser,
         ]);
     }
 

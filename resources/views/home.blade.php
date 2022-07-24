@@ -13,10 +13,10 @@
                             <h1>REXPRESS</h1>
                             <p>Providing you the best restaurants with a vast array of foods to choose from.</p>
                         </div>
-                        <img src="/gambar/egg.png" class="d-block w-100" alt="...">
+                        <img src="/gambar/egg.png" class="img-fluid" alt="...">
                     </div>
                     <div class="carousel-item" data-bs-interval="10000">
-                        <img src="/gambar/sayur.png" class="d-block w-100       " alt="...">
+                        <img src="/gambar/sayur.png" class="img-fluid" alt="...">
                         <div class="carousel-caption d-none d-md-block">
                             <h1>FEATURED MENU: SAYUR</h1>
                             <p>Sayur atau sayuran merupakan sebutan umum bagi bahan pangan nabati yang biasanya mengandung
@@ -25,15 +25,15 @@
                         </div>
                     </div>
                     <div class="carousel-item" data-bs-interval="2000">
-                        <img src="/gambar/telor.png" class="d-block w-100" alt="...">
+                        <img src="/gambar/telor.png" class="img-fluid" alt="...">
                         <div class="carousel-caption d-none d-md-block">
                             <h1>FEATURED MENU: TELUR</h1>
                             <p>Telur adalah wadah organik yang berisi zigot di mana embrio berkembang sampai dapat bertahan
                                 hidup sendiri, di mana hewan menetas. Telur dihasilkan dari pembuahan sel telur. </p>
                         </div>
                     </div>
-                    <div class="carousel-item">
-                        <img src="/gambar/burger.png" class="d-block w-100" alt="...">
+                    <div class="carousel-item w-100">
+                        <img src="/gambar/burger.png" class="img-fluid" alt="...">
                         <div class="carousel-caption d-none d-md-block">
                             <h1>BURGER</h1>
                             <p>Hamburger adalah sejenis roti berbentuk bundar yang diiris dua, dan di tengahnya diisi dengan

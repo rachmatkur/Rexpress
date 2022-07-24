@@ -5,6 +5,8 @@ use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\ProfileController;
+use App\Models\Cart;
 use App\Models\User;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Support\Facades\Route;
@@ -20,45 +22,43 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [ApplicationController::class, 'home']);
-Route::get('/login', [LoginController::class, 'index'])->name('login');
-Route::post('/login', [LoginController::class, 'store']);
+//login, register, and logout route
+Route::get('/', [LoginController::class, 'index']);
+Route::get('/login', [LoginController::class, 'index'])->name('loginIndex');
+Route::post('/login', [LoginController::class, 'store'])->name('login');
+Route::get('/register', [ApplicationController::class, 'register'])->name('registerIndex');
+Route::post('/register', [ApplicationController::class, 'store'])->name('register');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('profile', [ProfileController::class, 'index'])->name('profile')->middleware('auth');
+Route::get('profile/edit', [ProfileController::class, 'edit'])->name('profile.edit')->middleware('auth');
+Route::post('profile/store', [ProfileController::class, 'store'])->name('profile.store')->middleware('auth');
 
-Route::get('/register', [ApplicationController::class, 'register'])->name('register');
-Route::post('/register', [ApplicationController::class, 'store']);
 
-Route::get('/cart', [ApplicationController::class, 'cart']);
-Route::get('/history', [ApplicationController::class, 'history']);
-
-
-
+//features
+Route::get('/cart', [ApplicationController::class, 'cart'])->middleware('auth');
+Route::get('/history', [ApplicationController::class, 'history'])->middleware('auth');
 Route::get('/home', [ApplicationController::class, 'home'])->name('home');
 Route::get('/restos', [ApplicationController::class, 'restos']);
 Route::get('/restoDetail/{id}', [ApplicationController::class, 'restoDetail']);
 
 //crud resto
-Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.index');
-Route::get('/admin/add', [AdminController::class, 'create'])->name('admin.add');
-Route::post('/admin/add', [AdminController::class, 'store']);
-Route::get('/admin/{user}/edit', [AdminController::class, 'edit'])->name('admin.edit');
-Route::post('/admin/{user}/edit', [AdminController::class, 'update']);
-Route::delete('/admin/{user}', [AdminController::class, 'destroy'])->name('admin.delete');
-
+Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.index')->middleware('auth', 'admin');
+Route::get('/admin/add', [AdminController::class, 'create'])->name('admin.add')->middleware('auth', 'admin');
+Route::post('/admin/add', [AdminController::class, 'store'])->middleware('auth', 'admin');
+Route::get('/admin/{user}/edit', [AdminController::class, 'edit'])->name('admin.edit')->middleware('auth', 'admin');
+Route::post('/admin/{user}/edit', [AdminController::class, 'update'])->middleware('auth', 'admin');
+Route::delete('/admin/{user}', [AdminController::class, 'destroy'])->name('admin.delete')->middleware('auth', 'admin');
 
 // crud menu
-Route::get('/resto/dashboard', [MenuController::class, 'index'])->name('resto.index');
+Route::get('/resto/dashboard', [MenuController::class, 'index'])->name('resto.index')->middleware('auth','resto');
+Route::get('/resto/add', [MenuController::class, 'create'])->name('resto.add')->middleware('auth','resto');
+Route::post('/resto/add', [MenuController::class, 'store'])->middleware('auth','resto');
+Route::get('/resto/{user}/edit', [MenuController::class, 'edit'])->name('resto.edit')->middleware('auth','resto');
+Route::post('/resto/{user}/edit', [MenuController::class, 'update']);
+Route::delete('/resto/{user}', [MenuController::class, 'destroy'])->name('resto.delete')->middleware('auth','resto');
 
-Route::get('/resto/add', [MenuController::class, 'create'])->name('resto.add');
-Route::post('/resto/add', [MenuController::class, 'store']);
-Route::get('/resto/{menu}/edit', [MenuController::class, 'edit'])->name('resto.edit');
-Route::post('/resto/{menu}/edit', [MenuController::class, 'update']);
-Route::delete('/resto/{menu}', [MenuController::class, 'destroy'])->name('resto.delete');
-
-Route::get('/category/add', [CategoryController::class, 'create'])->name('category.add');
-Route::post('/category/add', [CategoryController::class, 'store']);
-Route::get('/category/{user}/edit', [CategoryController::class, 'edit'])->name('category.edit');
-Route::post('/category/{user}/edit', [CategoryController::class, 'update']);
-Route::delete('/category/{user}', [CategoryController::class, 'destroy'])->name('category.delete');
-
-
-Route::get('/menu/{menu}', [MenuController::class, 'show'])->name('menu.show');
+Route::get('/category/add', [CategoryController::class, 'create'])->name('category.add')->middleware('auth','resto');
+Route::post('/category/add', [CategoryController::class, 'store'])->middleware('auth','resto');
+Route::get('/category/{user}/edit', [CategoryController::class, 'edit'])->name('category.edit')->middleware('auth','resto');
+Route::post('/category/{user}/edit', [CategoryController::class, 'update'])->middleware('auth','resto');
+Route::delete('/category/{user}', [CategoryController::class, 'destroy'])->name('category.delete')->middleware('auth','resto');
