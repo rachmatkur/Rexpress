@@ -61,9 +61,25 @@ class MenuController extends Controller
             'user_id' => auth()->user()->id
         ]);
 
-        $request['image'] = $request->file('photo')->store('gambar');
+        $fileName = $request->image->getClientOriginalName();
+        $categories = Category::all();
+        $categoryName = null;
+        foreach ($categories as $category) {
+            if($category->id == $request->category_id){
+                $categoryName = $category->category;
+            }
+        }
+        $request->image->storeAs("public/gambar/menu/{$categoryName}", $fileName);
 
-        Menu::create($request->all());
+        Menu::insert([
+            'name'=>$request->name,
+            'price'=>$request->price,
+            'description'=>$request->description,
+            'stock'=>$request->stock,
+            'image'=>$fileName,
+            'category_id'=>$request->category_id,
+            'user_id'=>$request->user_id
+        ]);
 
         return redirect('/resto/dashboard');
     }

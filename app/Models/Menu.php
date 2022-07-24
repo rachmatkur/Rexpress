@@ -10,6 +10,16 @@ class Menu extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
+    protected $fillable = [
+        'name',
+        'price',
+        'description',
+        'stock',
+        'image',
+        'category_id',
+        'user_id'
+    ];
+
 
     public function category()
     {

@@ -27,7 +27,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="formFile" class="form-label">Photo</label>
-                                <input class="form-control" type="file" id="formFile" name="photo">
+                                <input class="form-control" type="file" id="formFile" name="image">
                             </div>
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">Stock</label>

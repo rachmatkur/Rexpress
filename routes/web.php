@@ -7,6 +7,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TransactionController;
 use App\Models\Cart;
 use App\Models\User;
 use Illuminate\Auth\Events\Login;
@@ -43,12 +44,10 @@ Route::get('/cart/remove/{menu}', [CartController::class, 'remove'])->middleware
 Route::get('/cart/checkout', [CartController::class, 'checkout'])->middleware('auth')->name('cart.checkout');
 
 //features
-Route::get('/history', [ApplicationController::class, 'history'])->middleware('auth');
+Route::get('/history', [TransactionController::class, 'history'])->middleware('auth');
 Route::get('/home', [ApplicationController::class, 'home'])->name('home');
 Route::get('/restos', [ApplicationController::class, 'restos']);
 Route::get('/restoDetail/{id}', [ApplicationController::class, 'restoDetail']);
-
-
 
 //crud resto
 Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.index')->middleware('auth', 'admin');
@@ -71,3 +70,4 @@ Route::post('/category/add', [CategoryController::class, 'store'])->middleware('
 Route::get('/category/{user}/edit', [CategoryController::class, 'edit'])->name('category.edit')->middleware('auth', 'resto');
 Route::post('/category/{user}/edit', [CategoryController::class, 'update'])->middleware('auth', 'resto');
 Route::delete('/category/{user}', [CategoryController::class, 'destroy'])->name('category.delete')->middleware('auth', 'resto');
+Route::get('/resto/history', [TransactionController::class, 'resto_history'])->middleware('auth', 'resto')->name('restaurant.history');

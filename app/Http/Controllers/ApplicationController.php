@@ -105,23 +105,4 @@ class ApplicationController extends Controller
             ]
         );
     }
-
-    public function history()
-    {
-        $transactions = Transaction::where('user_id', Auth::user()->id)->get();
-        $user = Auth::check();
-        if ($user) {
-            $role = Auth::user()->role;
-            $name = Auth::user()->name;
-        } else {
-            $role = '4';
-            $name = 'Guest';
-        }
-        return view('history', [
-            'role_id' => $role,
-            'name' => $name,
-            'user' => $user,
-            'transactions' => $transactions
-        ]);
-    }
 }

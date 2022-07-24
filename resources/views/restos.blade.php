@@ -16,7 +16,7 @@
                     @foreach ($restos as $resto)
                         <div class="col-md-4 d-flex align-items-center mb-4">
                             <div class="card w-100 h-100">
-                                <img src="..." class="card-img-top" alt="...">
+                                <img src="/gambar/{{$resto->profilePicture}}" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $resto->name }}</h5>
                                     <p class="card-text">{{ $resto->description }}</p>

@@ -13,9 +13,9 @@
             <div class="col">
                 @foreach ($restaurants as $resto)
                     <div class="card mb-3">
-                        <div class="row g-0">
+                        <div class="row g-0 d-flex align-items-center">
                             <div class="col-md-3">
-                                <img src="{{ asset($resto->profilePicture) }}" class="img-fluid rounded-start"
+                                <img src="/gambar/{{$resto->profilePicture}}" class="img-fluid rounded-start"
                                     alt="...">
                             </div>
                             <div class="col-md-7">

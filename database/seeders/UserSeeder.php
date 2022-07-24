@@ -40,7 +40,7 @@ class UserSeeder extends Seeder
             'name' => 'steven',
             'password' => bcrypt('steven123'),
             'address' => 'jakarta',
-            'profilePicture' => '',
+            'profilePicture' => 'stevenProfilePicture.jpg',
             'phoneNumber' => '081212345513',
             'description' => ''
         ],
@@ -50,7 +50,7 @@ class UserSeeder extends Seeder
             'name' => 'stevon',
             'password' => bcrypt('stevon123'),
             'address' => 'jakarta',
-            'profilePicture' => '',
+            'profilePicture' => 'stevonProfilePicture.jpg',
             'phoneNumber' => '081212345513',
             'description' => ''
         ],

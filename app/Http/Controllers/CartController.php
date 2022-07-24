@@ -88,7 +88,8 @@ class CartController extends Controller
                 'menu_id' => $cart->menu_id,
                 'user_id' => $cart->user_id,
                 'qty' => $cart->qty,
-                'total' => $total
+                'total' => $total,
+                'restaurant_id' => $cart->menu->user_id
             ]);
             $menu = $cart->menu;
             $menu->stock -= $cart->qty;

@@ -12,11 +12,16 @@ class Transaction extends Model
         'user_id',
         'menu_id',
         'qty',
-        'total'
+        'total',
+        'restaurant_id'
     ];
 
     public function menu(){
         return $this->belongsTo(Menu::class);
+    }
+    
+    public function user(){
+        return $this->belongsTo(User::class);
     }
     use HasFactory;
 }
