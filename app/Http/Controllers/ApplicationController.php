@@ -29,8 +29,8 @@ class ApplicationController extends Controller
 
         // dd($request->all());
         // dd($request->profilePicture);
-        $profilePicture = $request->name.'profilePicture.'.$request->profilePicture->getClientOriginalExtension();
-        $request->profilePicture->storeAs('/public/gambar', $profilePicture);
+        $profilePicture = $request->name . 'profilePicture.' . $request->profilePicture->getClientOriginalExtension();
+        $request->profilePicture->storeAs('public/gambar', $profilePicture);
         User::create([
             'role' => 1,
             'email' => $request->email,
@@ -47,15 +47,14 @@ class ApplicationController extends Controller
     public function home()
     {
         $user = Auth::check();
-        if ($user){
+        if ($user) {
             $role = Auth::user()->role;
             $name = Auth::user()->name;
-        }
-        else{
+        } else {
             $role = '4'; //role 4 guest
             $name = 'Guest';
         }
-        return view('home',[
+        return view('home', [
             'role_id' => $role,
             'name' => $name,
             'user' => $user,
@@ -65,56 +64,60 @@ class ApplicationController extends Controller
     public function restos()
     {
         $user = Auth::check();
-        if ($user){
+        if ($user) {
             $role = Auth::user()->role;
             $name = Auth::user()->name;
-        }
-        else{
+        } else {
             $role = '4';
             $name = 'Guest';
         }
         $restos = User::where('role', 3)->get();
-        return view('restos', 
-        ['restos' => $restos,
-        'role_id' => $role,
-        'name' => $name,
-        'user' => $user,]);
+        return view(
+            'restos',
+            [
+                'restos' => $restos,
+                'role_id' => $role,
+                'name' => $name,
+                'user' => $user,
+            ]
+        );
     }
 
     public function restoDetail($id)
     {
         $user = Auth::check();
-        if ($user){
+        if ($user) {
             $role = Auth::user()->role;
             $name = Auth::user()->name;
-        }
-        else{
+        } else {
             $role = '4';
             $name = 'Guest';
         }
         $resto = User::where('id', $id)->first();
         $menus = User::find($id)->menu;
-        return view('restaurantDetail',
-        ['resto'=>$resto, "menus" => $menus, 
-        'role_id' => $role,
-        'name' => $name,
-        'user' => $user]);
+        return view(
+            'restaurantDetail',
+            [
+                'resto' => $resto, "menus" => $menus,
+                'role_id' => $role,
+                'name' => $name,
+                'user' => $user
+            ]
+        );
     }
-
 
     public function history()
     {
         $transactions = Transaction::where('user_id', Auth::user()->id)->get();
         $user = Auth::check();
-        if ($user){
+        if ($user) {
             $role = Auth::user()->role;
             $name = Auth::user()->name;
-        }
-        else{
+        } else {
             $role = '4';
             $name = 'Guest';
         }
-        return view('history',[
+        return view('history', [
             'role_id' => $role,
             'name' => $name,
             'user' => $user,

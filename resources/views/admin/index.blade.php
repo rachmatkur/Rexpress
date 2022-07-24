@@ -15,7 +15,8 @@
                     <div class="card mb-3">
                         <div class="row g-0">
                             <div class="col-md-3">
-                                <img src="..." class="img-fluid rounded-start" alt="...">
+                                <img src="{{ asset($resto->profilePicture) }}" class="img-fluid rounded-start"
+                                    alt="...">
                             </div>
                             <div class="col-md-7">
                                 <div class="card-body">
@@ -26,8 +27,7 @@
                             <div class="col-md-2 d-flex justify-content-center py-2">
                                 <div class="btn">
                                     <a href="{{ route('admin.edit', $resto->id) }}" class="btn btn-dark">Update</a>
-                                    <form action="{{ route('admin.delete', $resto->id) }}" method="POST"
-                                        class="d-inline">
+                                    <form action="{{ route('admin.delete', $resto->id) }}" method="POST" class="d-inline">
                                         @csrf @method('DELETE')
                                         <button type="submit" class="btn btn-danger">Delete</button>
                                     </form>

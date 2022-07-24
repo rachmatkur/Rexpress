@@ -11,7 +11,7 @@
                         <h4>Update Restaurant</h4>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('admin.edit', $restaurant->id) }}" method="post">
+                        <form action="{{ route('admin.edit', $restaurant->id) }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">Name</label>
@@ -35,6 +35,10 @@
                             <div class="mb-3">
                                 <label for="exampleFormControlTextarea1" class="form-label">Description</label>
                                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" name="description">{{ $restaurant->description }}</textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="formFile" class="form-label">Photo</label>
+                                <input class="form-control" type="file" id="formFile" name="photo">
                             </div>
                             <button class="btn btn-dark" type="submit">Update Restaurant</button>
                         </form>

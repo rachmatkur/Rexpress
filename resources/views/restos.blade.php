@@ -12,7 +12,7 @@
                 <img src="/gambar/veggieJumble.png" alt="" class="w-50">
             </div>
             <div class="w-75">
-                <div class="row bg-light">
+                <div class="row bg-light row-cols-3">
                     @foreach ($restos as $resto)
                         <div class="col-md-4 d-flex align-items-center mb-4">
                             <div class="card w-100 h-100">
@@ -28,38 +28,6 @@
                         </div>
                     @endforeach
                 </div>
-                <!-- <div class="row bg-light" style="margin-bottom: 3%">
-                    <div class="col-4 d-flex align-items-center">
-                        <div class="card" style="width: 18rem;">
-                            <img src="..." class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Restaurant A</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-dark">Go to page</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-4 d-flex align-items-center">
-                        <div class="card" style="width: 18rem;">
-                            <img src="..." class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Restaurant A</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-dark">Go to page</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-4 d-flex align-items-center">
-                        <div class="card" style="width: 18rem;">
-                            <img src="..." class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Restaurant A</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-dark">Go to page</a>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
             </div>
         </div>
 

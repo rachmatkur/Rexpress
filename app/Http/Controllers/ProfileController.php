@@ -8,34 +8,34 @@ use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
-    public function index(){       
+    public function index()
+    {
         $user = Auth::check();
-        if ($user){
+        if ($user) {
             $role = Auth::user()->role;
             $name = Auth::user()->name;
-        }
-        else{
+        } else {
             $role = '4';
             $name = 'Guest';
         }
-        return view('profile',[
+        return view('profile', [
             'role_id' => $role,
             'name' => $name,
             'user' => $user,
             'currentUser' => Auth::user()
         ]);
     }
-    public function edit(){
+    public function edit()
+    {
         $user = Auth::check();
-        if ($user){
+        if ($user) {
             $role = Auth::user()->role;
             $name = Auth::user()->name;
-        }
-        else{
+        } else {
             $role = '4';
             $name = 'Guest';
         }
-        return view('editProfile',[
+        return view('editProfile', [
             'role_id' => $role,
             'name' => $name,
             'user' => $user,
@@ -43,7 +43,8 @@ class ProfileController extends Controller
         ]);
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required', 'min:8'],
@@ -56,8 +57,8 @@ class ProfileController extends Controller
 
         // dd($request->all());
         // dd($request->profilePicture);
-        $profilePicture = $request->name.'profilePicture.'.$request->profilePicture->getClientOriginalExtension();
-        $request->profilePicture->storeAs('/public/gambar', $profilePicture);
+        $profilePicture = $request->name . 'profilePicture.' . $request->profilePicture->getClientOriginalExtension();
+        $request->profilePicture->storeAs('public/gambar', $profilePicture);
         $user = User::find(Auth::user()->id);
         $user->email = $request->email;
         $user->password = $request->password;

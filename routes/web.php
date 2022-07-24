@@ -59,15 +59,15 @@ Route::post('/admin/{user}/edit', [AdminController::class, 'update'])->middlewar
 Route::delete('/admin/{user}', [AdminController::class, 'destroy'])->name('admin.delete')->middleware('auth', 'admin');
 
 // crud menu
-Route::get('/resto/dashboard', [MenuController::class, 'index'])->name('resto.index')->middleware('auth','resto');
-Route::get('/resto/add', [MenuController::class, 'create'])->name('resto.add')->middleware('auth','resto');
-Route::post('/resto/add', [MenuController::class, 'store'])->middleware('auth','resto');
-Route::get('/resto/{user}/edit', [MenuController::class, 'edit'])->name('resto.edit')->middleware('auth','resto');
-Route::post('/resto/{user}/edit', [MenuController::class, 'update']);
-Route::delete('/resto/{user}', [MenuController::class, 'destroy'])->name('resto.delete')->middleware('auth','resto');
+Route::get('/resto/dashboard', [MenuController::class, 'index'])->name('resto.index')->middleware('auth', 'resto');
+Route::get('/resto/add', [MenuController::class, 'create'])->name('resto.add')->middleware('auth', 'resto');
+Route::post('/resto/add', [MenuController::class, 'store'])->middleware('auth', 'resto');
+Route::get('/resto/{menu}/edit', [MenuController::class, 'edit'])->name('resto.edit')->middleware('auth', 'resto');
+Route::post('/resto/{menu}/edit', [MenuController::class, 'update']);
+Route::delete('/resto/{menu}', [MenuController::class, 'destroy'])->name('resto.delete')->middleware('auth', 'resto');
 
-Route::get('/category/add', [CategoryController::class, 'create'])->name('category.add')->middleware('auth','resto');
-Route::post('/category/add', [CategoryController::class, 'store'])->middleware('auth','resto');
-Route::get('/category/{user}/edit', [CategoryController::class, 'edit'])->name('category.edit')->middleware('auth','resto');
-Route::post('/category/{user}/edit', [CategoryController::class, 'update'])->middleware('auth','resto');
-Route::delete('/category/{user}', [CategoryController::class, 'destroy'])->name('category.delete')->middleware('auth','resto');
+Route::get('/category/add', [CategoryController::class, 'create'])->name('category.add')->middleware('auth', 'resto');
+Route::post('/category/add', [CategoryController::class, 'store'])->middleware('auth', 'resto');
+Route::get('/category/{user}/edit', [CategoryController::class, 'edit'])->name('category.edit')->middleware('auth', 'resto');
+Route::post('/category/{user}/edit', [CategoryController::class, 'update'])->middleware('auth', 'resto');
+Route::delete('/category/{user}', [CategoryController::class, 'destroy'])->name('category.delete')->middleware('auth', 'resto');
