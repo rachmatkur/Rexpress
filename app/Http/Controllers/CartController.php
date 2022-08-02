@@ -93,12 +93,7 @@ class CartController extends Controller
             ]);
             $menu = $cart->menu;
             $menu->stock -= $cart->qty;
-            if($menu->stock <= 0){
-                $menu->delete();
-            }
-            else{
-                $menu->save();
-            }
+            $menu->save();
             $cart->delete();    
         }
         return redirect()->route('cart.index');

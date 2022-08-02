@@ -5,6 +5,9 @@
 @section('content')
     <div class="container">
         <div class="mt-4">
+            <a href="{{ route('resto.index') }}" class="btn btn-dark">
+                Dashboard
+            </a>
             <a href="{{ route('resto.add') }}" class="btn btn-dark">
                 Add Menu
             </a>

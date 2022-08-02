@@ -18,7 +18,7 @@
                     <div class="carousel-item" data-bs-interval="10000">
                         <img src="/gambar/sayur.png" class="img-fluid" alt="...">
                         <div class="carousel-caption d-none d-md-block">
-                            <h1>FEATURED MENU: SAYUR</h1>
+                            <h1>SAYUR</h1>
                             <p>Sayur atau sayuran merupakan sebutan umum bagi bahan pangan nabati yang biasanya mengandung
                                 kadar air yang tinggi, yang dapat dikonsumsi setelah dimasak atau diolah dengan teknik
                                 tertentu, atau dalam keadaan segar.</p>
@@ -27,7 +27,7 @@
                     <div class="carousel-item" data-bs-interval="2000">
                         <img src="/gambar/telor.png" class="img-fluid" alt="...">
                         <div class="carousel-caption d-none d-md-block">
-                            <h1>FEATURED MENU: TELUR</h1>
+                            <h1>TELUR</h1>
                             <p>Telur adalah wadah organik yang berisi zigot di mana embrio berkembang sampai dapat bertahan
                                 hidup sendiri, di mana hewan menetas. Telur dihasilkan dari pembuahan sel telur. </p>
                         </div>
